@@ -95,3 +95,17 @@ In the UDMP Network page that would look like this:
 ![image](https://user-images.githubusercontent.com/17893990/162674285-a84787d6-853e-4b5d-94d4-8d26065d517a.png)
 
 It's a good idea once your LAN clients have received an IPv6 address to ensure that your firewall rules are working as you intend. I use [this](http://www.ipv6scanner.com/cgi-bin/main.py) IPv6 capable port scanner to ensure that my expected rules are working correctly.
+
+# Updating your dynamic IP with TunnelBroker using inadyn
+
+Here is an example `inadyn.conf` entry for tunnelbroker:
+
+```
+# he.net tunnelbroker
+provider default@tunnelbroker.net {
+        checkip-server = default
+    username = {your_tunnelbroker_login_id}
+        password = {your_tunnel_update_key} (from the advanced tab in tunnel details)
+        hostname = tunnel{tunnelid}.tunnelbroker.net (the 'tid' number from the tunnel details page URL)
+}
+```
