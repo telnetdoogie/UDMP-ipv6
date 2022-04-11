@@ -51,7 +51,7 @@ To confirm that your firewall rules are being applied to the `he-ipv6` interface
 -A UBIOS_INPUT_USER_HOOK -i he-ipv6 -m comment --comment 00000001095216663482 -j UBIOS_WAN_LOCAL_USER
 ```
 
-...changing rules in the UDMP admin interface will remove firewall / iptables rules and re-apply them to `eth8` and `eth9`. The cron job should re-apply any old and new rules back to the `he-ipv6` interface within each minute, if they have been removed.
+...changing rules in the UDMP UI / Admin interface will have the side-effect of wiping firewall / iptables rules and re-applying them to `eth8` and `eth9`. The cron job will scrape the new rules and will re-apply them back to the `he-ipv6` interface if they have been removed. In the cronjob provided, this will occur as often as every minute (if the rules have indeed been changed) - so there may be a slight lag (1 minute or less) between changing firewall rules, and those rules being re-applied to the `he-ipv6` interface.
 
 # Assigning IPv6 Address to your LAN clients
 
