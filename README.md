@@ -70,7 +70,7 @@ You can test that the rules are continuing to be updated by the cron job by maki
 # ip6tables-save | grep he-ipv6
 # ip6tables-save | grep he-ipv6
 
-( Wait a while here, rules should return after ~1 minute )
+( Wait a while here, rules should return after ~1 minute thanks to cron )
 
 # ip6tables-save | grep he-ipv6
 -A UBIOS_FORWARD_IN_USER -i he-ipv6 -m comment --comment 00000001095216663483 -j UBIOS_WAN2_PF_IN_USER
