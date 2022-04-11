@@ -23,7 +23,20 @@ Log entries related to scripts running will show in `/var/log/messages` with a p
 
 # Testing things out
 
-To confirm that ipv6 is working, while logged into the UDMP and after all scripts are installed and have been executed, run `ping6 2600::` and look for responses.
+To confirm that ipv6 is working, while logged into the UDMP and after all scripts are installed and have been executed, run `ping6 2600::` and look for valid response:
+```
+# ping6 2600::
+PING 2600:: (2600::): 56 data bytes
+64 bytes from 2600::: seq=0 ttl=53 time=32.721 ms
+64 bytes from 2600::: seq=1 ttl=53 time=32.720 ms
+64 bytes from 2600::: seq=2 ttl=53 time=45.699 ms
+64 bytes from 2600::: seq=3 ttl=53 time=32.905 ms
+64 bytes from 2600::: seq=4 ttl=53 time=32.579 ms
+^C
+--- 2600:: ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 32.579/35.324/45.699 ms
+```
 
 To confirm that your firewall rules are being applied to the `he-ipv6` interface, run `ip6tables-save | grep he-ipv6`. You should see entries similar to this:
 ```
