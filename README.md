@@ -1,6 +1,6 @@
 # IPv6 via tunnelbroker on a UDMP
 
-These script depends on [boostchicken's on_boot utility](https://github.com/boostchicken-dev/udm-utilities/blob/master/on-boot-script/README.md). That must be set up and running before you can use these scripts.
+This collection of scripts depends on [boostchicken's on_boot utility](https://github.com/boostchicken-dev/udm-utilities/blob/master/on-boot-script/README.md). That must be set up and running before you can use these scripts.
 
 You must first have an account set up with tunnelbroker and a tunnel to use. HE will require that your UDMP can be pingable from tunnelbroker's IP when you provide your IPv4 address. This will need to continue if you're using something like ddclient or inadyn to update your IP with tunnelbroker dynamically.
 
