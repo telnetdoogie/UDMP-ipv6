@@ -2,9 +2,9 @@
 
 These script depends on [boostchicken's on_boot utility](https://github.com/boostchicken-dev/udm-utilities/blob/master/on-boot-script/README.md). That must be set up and running before you can use these scripts.
 
-You must first have an account set up with tunnelbroker and a tunnel to use. That will require that your UDMP can be pingable from tunnelbroker's IP especially if using something like ddclient or inadyn to update the IP dynamically.
+You must first have an account set up with tunnelbroker and a tunnel to use. HE will require that your UDMP can be pingable from tunnelbroker's IP when you provide your IPv4 address. This will need to continue if you're using something like ddclient or inadyn to update your IP with tunnelbroker dynamically.
 
-This is my port forward rule for allowing HE to ping my UDMP from the internet (not needed if you're already allowing ping from the internet as a general rule)
+This is my port forward rule for allowing HE to ping my UDMP from the internet (not needed if you're already allowing ping from the internet as a general rule) - tunnelbroker's IP that the pings will come from is `66.220.2.74` at time of writing.
 
 ![image](https://user-images.githubusercontent.com/17893990/162670587-27812c6c-3259-4eaf-a1a4-19284b65957b.png)
 
