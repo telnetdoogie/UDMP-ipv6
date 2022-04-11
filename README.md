@@ -58,3 +58,8 @@ To confirm that your firewall rules are being applied to the `he-ipv6` interface
 To assign IPv6 addresses to your LAN, you should request a routed /48 from tunnelbroker. You can now manually partition your /48 into as many /64s as you need, and use the "static" assignments on each LAN you want to serve IPv6 addresses to via DHCP.
 
 For example, if your /48 was `2000:ffff:1234::/48`, you could assign `2000:ffff:1234:1::1/64` as your VLAN1's "**IPv6 Gateway/Subnet**" (giving the UDMP itself an address of `2000:ffff:1234:1::1` on that VLAN) and use the range `2000:ffff:1234:1::3` to `2000:ffff:1234:1::7d1` as the DHCP range for that network. That would allow you to have VLANs with address ranges as `2000:ffff:1234:1::/64`, `2000:ffff:1234:2::/64`, `2000:ffff:1234:3::/64` etc etc.
+
+In the UDMP Network page that would look like this:
+
+![image](https://user-images.githubusercontent.com/17893990/162674285-a84787d6-853e-4b5d-94d4-8d26065d517a.png)
+
