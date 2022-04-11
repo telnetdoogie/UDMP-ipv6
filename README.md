@@ -50,8 +50,39 @@ To confirm that your firewall rules are being applied to the `he-ipv6` interface
 -A UBIOS_INPUT_GEOIP_PRECHK -i he-ipv6 -j UBIOS_IN_GEOIP
 -A UBIOS_INPUT_USER_HOOK -i he-ipv6 -m comment --comment 00000001095216663482 -j UBIOS_WAN_LOCAL_USER
 ```
-
 ...changing rules in the UDMP UI / Admin interface will have the side-effect of wiping firewall / iptables rules and re-applying them to `eth8` and `eth9`. The cron job will scrape the new rules and will re-apply them back to the `he-ipv6` interface if they have been removed. In the cronjob provided, this will occur as often as every minute (if the rules have indeed been changed) - so there may be a slight lag (1 minute or less) between changing firewall rules, and those rules being re-applied to the `he-ipv6` interface.
+
+You can test that the rules are continuing to be updated by the cron job by making a change somewhere in the UI / Admin interface and observing the return of the iptables entries:
+
+```
+# ip6tables-save | grep he-ipv6
+-A UBIOS_FORWARD_IN_USER -i he-ipv6 -m comment --comment 00000001095216663483 -j UBIOS_WAN2_PF_IN_USER
+-A UBIOS_FORWARD_IN_USER -i he-ipv6 -m comment --comment 00000001095216663484 -j UBIOS_WAN_IN_USER
+-A UBIOS_FORWARD_OUT_USER -o he-ipv6 -m comment --comment 00000001095216663483 -j UBIOS_WAN2_PF_OUT_USER
+-A UBIOS_FORWARD_OUT_USER -o he-ipv6 -m comment --comment 00000001095216663484 -j UBIOS_WAN_OUT_USER
+-A UBIOS_FWD_IN_GEOIP_PRECHK -i he-ipv6 -j UBIOS_IN_GEOIP
+-A UBIOS_FWD_OUT_GEOIP_PRECHK -o he-ipv6 -j UBIOS_OUT_GEOIP
+-A UBIOS_INPUT_GEOIP_PRECHK -i he-ipv6 -j UBIOS_IN_GEOIP
+-A UBIOS_INPUT_USER_HOOK -i he-ipv6 -m comment --comment 00000001095216663482 -j UBIOS_WAN_LOCAL_USER
+
+( Admin / UI change made here, rules disappear )
+
+# ip6tables-save | grep he-ipv6
+# ip6tables-save | grep he-ipv6
+
+( Wait a while here, rules should return after ~1 minute )
+
+# ip6tables-save | grep he-ipv6
+-A UBIOS_FORWARD_IN_USER -i he-ipv6 -m comment --comment 00000001095216663483 -j UBIOS_WAN2_PF_IN_USER
+-A UBIOS_FORWARD_IN_USER -i he-ipv6 -m comment --comment 00000001095216663484 -j UBIOS_WAN_IN_USER
+-A UBIOS_FORWARD_OUT_USER -o he-ipv6 -m comment --comment 00000001095216663483 -j UBIOS_WAN2_PF_OUT_USER
+-A UBIOS_FORWARD_OUT_USER -o he-ipv6 -m comment --comment 00000001095216663484 -j UBIOS_WAN_OUT_USER
+-A UBIOS_FWD_IN_GEOIP_PRECHK -i he-ipv6 -j UBIOS_IN_GEOIP
+-A UBIOS_FWD_OUT_GEOIP_PRECHK -o he-ipv6 -j UBIOS_OUT_GEOIP
+-A UBIOS_INPUT_GEOIP_PRECHK -i he-ipv6 -j UBIOS_IN_GEOIP
+-A UBIOS_INPUT_USER_HOOK -i he-ipv6 -m comment --comment 00000001095216663482 -j UBIOS_WAN_LOCAL_USER
+
+```
 
 # Assigning IPv6 Address to your LAN clients
 
