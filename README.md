@@ -21,7 +21,9 @@ You can either reboot your UDMP at this point, or run `/mnt/data/on_boot.d/41-en
 
 Log entries related to scripts running will show in `/var/log/messages` with a prefix of `user.info`
 
-To confirm that ipv6 is working, while logged into the UDMP and after all script are installed and have been executed, run `ping6 2600::` and look for responses.
+# Testing things out
+
+To confirm that ipv6 is working, while logged into the UDMP and after all scripts are installed and have been executed, run `ping6 2600::` and look for responses.
 
 To confirm that your firewall rules are being applied to the `he-ipv6` interface, run `ip6tables-save | grep he-ipv6`. You should see entries similar to this:
 ```
