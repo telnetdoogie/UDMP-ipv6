@@ -109,7 +109,7 @@ Here is an example `inadyn.conf` entry for tunnelbroker:
 provider default@tunnelbroker.net {
         checkip-server = default
         username = {your_tunnelbroker_login_id}
-        password = {your_tunnel_update_key}            # from the advanced tab in tunnel details)
-        hostname = tunnel{tunnelid}.tunnelbroker.net   # the 'tid' number from the tunnel details page URL)
+        password = {your_tunnel_update_key}            # from the advanced tab in tunnel details
+        hostname = tunnel{tunnelid}.tunnelbroker.net   # the 'tid' number from the tunnel details page URL
 }
 ```
