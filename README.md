@@ -6,7 +6,7 @@ You must first have an account set up with [tunnelbroker](https://tunnelbroker.n
 
 This is my port forward rule for allowing HE to ping my UDMP from the internet (not needed if you're already allowing ping from the internet as a general rule) - tunnelbroker's IP that the pings will come from is `66.220.2.74` at time of writing.
 
-![image](https://user-images.githubusercontent.com/17893990/162670587-27812c6c-3259-4eaf-a1a4-19284b65957b.png)
+<img src="https://user-images.githubusercontent.com/17893990/162670587-27812c6c-3259-4eaf-a1a4-19284b65957b.png" width="50%">
 
 # Setting up the files
 
@@ -92,7 +92,7 @@ For example, if your /48 was `2000:ffff:1234::/48`, you could assign `2000:ffff:
 
 In the UDMP Network page that would look like this:
 
-![image](https://user-images.githubusercontent.com/17893990/162674285-a84787d6-853e-4b5d-94d4-8d26065d517a.png)
+<img src="https://user-images.githubusercontent.com/17893990/162674285-a84787d6-853e-4b5d-94d4-8d26065d517a.png" width="50%">
 
 It's a good idea once your LAN clients have received an IPv6 address to ensure that your firewall rules are working as you intend. I use [this](http://www.ipv6scanner.com/cgi-bin/main.py) IPv6 capable port scanner to ensure that my expected rules are working correctly.
 
