@@ -2,7 +2,7 @@
 
 This collection of scripts depends on [boostchicken's on_boot utility](https://github.com/boostchicken-dev/udm-utilities/blob/master/on-boot-script/README.md). That must be set up and running before you can use these scripts.
 
-You must first have an account set up with [tunnelbroker](https://tunnelbroker.net/) and a tunnel to use. Hurricane Electric will require that your UDMP can be pingable from tunnelbroker's IP when you provide your IPv4 address. This will need to continue if you're using something like ddclient or inadyn to update your IP with tunnelbroker dynamically.
+You must first have an account set up with [tunnelbroker](https://tunnelbroker.net/) and a tunnel to use. Hurricane Electric will require that your UDMP be pingable from tunnelbroker's IP when you initially provide your IPv4 address, and that connectivity will need to continue if you're using something like ddclient or inadyn to update your IP with tunnelbroker dynamically.
 
 This is my port forward rule for allowing HE to ping my UDMP from the internet (not needed if you're already allowing ping from the internet as a general rule) - tunnelbroker's IP that the pings will come from is `66.220.2.74` at time of writing.
 
