@@ -94,3 +94,4 @@ In the UDMP Network page that would look like this:
 
 ![image](https://user-images.githubusercontent.com/17893990/162674285-a84787d6-853e-4b5d-94d4-8d26065d517a.png)
 
+It's a good idea once your LAN clients have received an IPv6 address to ensure that your firewall rules are working as you intend. I use [this](http://www.ipv6scanner.com/cgi-bin/main.py) IPv6 capable port scanner to ensure that my expected rules are working correctly.
