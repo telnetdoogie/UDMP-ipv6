@@ -104,12 +104,12 @@ It's a good idea once your LAN clients have received an IPv6 address to ensure t
 
 Here is an example `inadyn.conf` entry for tunnelbroker:
 
-```
+```bash
 # he.net tunnelbroker
 provider default@tunnelbroker.net {
         checkip-server = default
-    username = {your_tunnelbroker_login_id}
-        password = {your_tunnel_update_key} (from the advanced tab in tunnel details)
-        hostname = tunnel{tunnelid}.tunnelbroker.net (the 'tid' number from the tunnel details page URL)
+        username = {your_tunnelbroker_login_id}
+        password = {your_tunnel_update_key}            # from the advanced tab in tunnel details)
+        hostname = tunnel{tunnelid}.tunnelbroker.net   # the 'tid' number from the tunnel details page URL)
 }
 ```
