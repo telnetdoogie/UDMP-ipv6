@@ -1,4 +1,7 @@
+# Default path on UDMP
 IP6TABLES_PATH="/usr/sbin"
+
+#UDMP-SE path
 if test -f "/sbin/iptables-save"; then
         IP6TABLES_PATH="/sbin"
 fi
