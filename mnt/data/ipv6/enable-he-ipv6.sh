@@ -1,5 +1,3 @@
-#!/bin/sh
-
 #Remote endpoint used for your tunnel, HE calls this "Server IPv4 Address:" on tunnelbroker.net under Tunnel Details.
 REMOTE_ENDPOINT={your ipv4 HE endpoint}
 
