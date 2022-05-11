@@ -16,6 +16,7 @@ This is my port forward rule for allowing HE to ping my UDMP from the internet (
   * (both of these files should be executable with `chmod +x {filename}`
 * Add a folder, `/mnt/data/cronjobs/` and put the file [update_ipv6_chains](mnt/data/cronjobs/update_ipv6_chains) in that folder.
 * Add a folder, `/mnt/data/ipv6/` and drop both files [enable-he-ipv6.sh](/mnt/data/ipv6/enable-he-ipv6.sh) and [configure-he-ipv6-chains.sh](/mnt/data/ipv6/configure-he-ipv6-chains.sh) in that folder.
+  * (both of these files also should be made executable with `chmod +x {filename}`
 * Edit the file [/mnt/data/ipv6/enable-he-ipv6.sh](/mnt/data/ipv6/enable-he-ipv6.sh) and change the two properties `REMOTE_ENDPOINT` and `LOCAL_IPV6` to match the values from `Server IPv4 Address` and `Client IPv6 Address` respectively
   * those values can be found on tunnelbroker.net in your **tunnel details** page
 
