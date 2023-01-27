@@ -12,19 +12,19 @@ This is my port forward rule for allowing HE to ping my UDMP from the internet (
 
 # Setting up the files
 
-* Add the two files [41-enable-he-ipv6.sh](mnt/data/on_boot.d/41-enable-he-ipv6.sh) and [99-add-cronjobs.sh](mnt/data/on_boot.d/99-add-cronjobs.sh) to `/mnt/data/on_boot.d/` 
+* Add the two files [41-enable-he-ipv6.sh](data/on_boot.d/41-enable-he-ipv6.sh) and [99-add-cronjobs.sh](data/on_boot.d/99-add-cronjobs.sh) to `/data/on_boot.d/` 
 * Make both of those files executable: 
-  * `chmod +x /mnt/data/on_boot.d/41-enable-he-ipv6.sh`
-  * `chmod +x /mnt/data/on_boot.d/99-add-cronjobs.sh`
-* Create a folder, `mkdir /mnt/data/cronjobs/` and put the file [update_ipv6_chains](mnt/data/cronjobs/update_ipv6_chains) in that folder.
-* Create a folder, `mkdir /mnt/data/ipv6/` and drop both files [enable-he-ipv6.sh](/mnt/data/ipv6/enable-he-ipv6.sh) and [configure-he-ipv6-chains.sh](/mnt/data/ipv6/configure-he-ipv6-chains.sh) in that folder.
+  * `chmod +x /data/on_boot.d/41-enable-he-ipv6.sh`
+  * `chmod +x /data/on_boot.d/99-add-cronjobs.sh`
+* Create a folder, `mkdir /data/cronjobs/` and put the file [update_ipv6_chains](data/cronjobs/update_ipv6_chains) in that folder.
+* Create a folder, `mkdir /data/ipv6/` and drop both files [enable-he-ipv6.sh](/data/ipv6/enable-he-ipv6.sh) and [configure-he-ipv6-chains.sh](/data/ipv6/configure-he-ipv6-chains.sh) in that folder.
 * Make both of those files executable:  
-  * `chmod +x /mnt/data/ipv6/enable-he-ipv6.sh` 
-  * `chmod +x /mnt/data/ipv6/configure-he-ipv6-chains.sh`
-* Edit the file [/mnt/data/ipv6/enable-he-ipv6.sh](/mnt/data/ipv6/enable-he-ipv6.sh) and change the two properties `REMOTE_ENDPOINT` and `LOCAL_IPV6` to match the values from `Server IPv4 Address` and `Client IPv6 Address` respectively
+  * `chmod +x /data/ipv6/enable-he-ipv6.sh` 
+  * `chmod +x /data/ipv6/configure-he-ipv6-chains.sh`
+* Edit the file [/data/ipv6/enable-he-ipv6.sh](/data/ipv6/enable-he-ipv6.sh) and change the two properties `REMOTE_ENDPOINT` and `LOCAL_IPV6` to match the values from `Server IPv4 Address` and `Client IPv6 Address` respectively
   * those values can be found on tunnelbroker.net in your **tunnel details** page
 
-You can either reboot your UDMP at this point, or run `/mnt/data/on_boot.d/41-enable-he-ipv6.sh` and `/mnt/data/on_boot.d/99-add-cronjobs.sh`. 
+You can either reboot your UDMP at this point, or run `/data/on_boot.d/41-enable-he-ipv6.sh` and `/data/on_boot.d/99-add-cronjobs.sh`. 
 
 Log entries related to scripts running will show in `/var/log/messages` with a prefix of `user.info`
 
