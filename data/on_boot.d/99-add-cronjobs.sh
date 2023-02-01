@@ -1,6 +1,6 @@
 #!/bin/bash
 
 cp /data/cronjobs/* /etc/cron.d/
-/etc/init.d/crond restart
+/etc/init.d/cron restart
 
 exit 0
