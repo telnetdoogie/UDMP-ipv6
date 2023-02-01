@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 DELAY=60
 
 #delay start, since networking is still not started yet
