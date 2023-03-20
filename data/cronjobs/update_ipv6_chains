@@ -1,1 +1,2 @@
-* * * * * /data/ipv6/configure-he-ipv6-chains.sh | /usr/bin/logger
+MAILTO=""
+* * * * * root /data/ipv6/configure-he-ipv6-chains.sh | /usr/bin/logger
