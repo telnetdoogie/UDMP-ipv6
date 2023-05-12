@@ -45,7 +45,8 @@ PING 2600:: (2600::): 56 data bytes
 round-trip min/avg/max = 32.579/35.324/45.699 ms
 ```
 
-To confirm that your firewall rules are being applied to the `he-ipv6` interface, run `ip6tables-save | grep he-ipv6`. You should see entries similar to this:
+To confirm that your firewall rules are being applied to the `he-ipv6` interface, run `ip6tables-save | grep he-ipv6`
+You should see entries similar to this:
 ```
 # ip6tables-save | grep he-ipv6
 -A UBIOS_FORWARD_IN_USER -i he-ipv6 -m comment --comment 00000001095216663483 -j UBIOS_WAN2_PF_IN_USER
