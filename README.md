@@ -1,4 +1,8 @@
-# IPv6 via tunnelbroker on a UDMP
+# IPv6 via tunnelbroker on a UDMP, with Unifi Firewall Rules
+
+This set of scripts is intended to help you automate and setup a Hurricane Electric / TunnelBroker ipv6 tunnel on your UDMP. It also allows you to use the ipv6 firewall rules as you normally would and will ensure those rules are applied to the tunnel (otherwise by default your HE tunnel will be wide open)
+
+# Prerequisites
 
 This collection of scripts depends on [boostchicken's on_boot utility](https://github.com/boostchicken-dev/udm-utilities/blob/master/on-boot-script/README.md). That must be set up and running before you can use these scripts.
 
