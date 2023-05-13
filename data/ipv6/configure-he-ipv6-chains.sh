@@ -10,6 +10,11 @@ fi
 #detect active WAN interface
 WAN_IFACE=$(ip route get 8.8.8.8 | awk '{ printf $5 }')
 
+if [[ ${WAN_IFACE} =~ \. ]]; then
+    #may be a ppp0 interface
+    WAN_IFACE=$(echo "${WAN_IFACE}" | grep -o '\.[^.]*$' | sed 's/\.//')
+fi
+
 # check to see if WAN interface rules have been re-created
 if ${IP6TABLES_PATH}/ip6tables-save | grep -Fqi "${WAN_IFACE}" ; then
 
