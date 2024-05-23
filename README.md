@@ -4,7 +4,7 @@ This set of scripts is intended to help you automate and setup a Hurricane Elect
 
 [![Commits](https://img.shields.io/github/last-commit/telnetdoogie/UDMP-ipv6.svg)](https://github.com/telnetdoogie/UDMP-ipv6/commits/main)
 [![Issues](https://img.shields.io/github/issues/telnetdoogie/UDMP-ipv6.svg)](https://github.com/telnetdoogie/UDMP-ipv6/issues)
-[![Pull Requests](https://img.shields.io/github/issues/telnetdoogie/UDMP-ipv6.svg)](https://github.com/telnetdoogie/UDMP-ipv6/pulls)
+[![Pull Requests](https://img.shields.io/github/issues-pr-raw/telnetdoogie/UDMP-ipv6.svg)](https://github.com/telnetdoogie/UDMP-ipv6/pulls)
 
 # Prerequisites
 
