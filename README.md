@@ -2,12 +2,9 @@
 
 This set of scripts is intended to help you automate and setup a Hurricane Electric / TunnelBroker ipv6 tunnel on your UDMP. It also allows you to use the ipv6 firewall rules as you normally would and will ensure those rules are applied to the tunnel (otherwise by default your HE tunnel will be wide open)
 
-<!-- Badges -->
-<p align="center">
-    <img src="https://img.shields.io/github/last-commit/telnetdoogie/UDMP-ipv6.svg" />
-    <img src="https://img.shields.io/github/issues/telnetdoogie/UDMP-ipv6.svg" />
-    <img src="https://img.shields.io/github/issues-pr-raw/telnetdoogie/UDMP-ipv6.svg" />
-</p>
+[![Commits](https://img.shields.io/github/last-commit/telnetdoogie/UDMP-ipv6.svg)](https://github.com/telnetdoogie/UDMP-ipv6/commits/main)
+[![Issues](https://img.shields.io/github/issues/telnetdoogie/UDMP-ipv6.svg)](https://github.com/telnetdoogie/UDMP-ipv6/issues)
+[![Pull Requests](https://img.shields.io/github/issues/telnetdoogie/UDMP-ipv6.svg)](https://github.com/telnetdoogie/UDMP-ipv6/pulls)
 
 # Prerequisites
 
