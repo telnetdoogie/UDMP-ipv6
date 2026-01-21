@@ -8,7 +8,7 @@ This set of scripts is intended to help you automate and setup a Hurricane Elect
 
 # Prerequisites
 
-This collection of scripts depends on [boostchicken's on_boot utility](https://github.com/boostchicken-dev/udm-utilities/blob/master/on-boot-script/README.md). That must be set up and running before you can use these scripts.
+This collection of scripts depends on the `on_boot.d` from [unifi-utilities](https://github.com/unifi-utilities/unifios-utilities/blob/main/on-boot-script-2.x/README.md). That must be set up and running before you can use these scripts.
 
 You must first have an account set up with [tunnelbroker](https://tunnelbroker.net/) and a tunnel to use. Hurricane Electric will require that your UDMP be pingable from tunnelbroker's IP when you initially provide your IPv4 address, and that connectivity will need to continue if you're using something like ddclient or inadyn to update your IP with tunnelbroker dynamically.
 
@@ -20,25 +20,25 @@ This is my port forward rule for allowing HE to ping my UDMP from the internet (
 
 # Caveat Emptor
 
-This script is not 'supported' in any way by Ubiquiti, and, based on the way the firewall rules are applied, you **MUST** disable ipv6 from your WAN interfaces before you set this up. In order to 'transpose' the Unifi Firewall rules over to the tunnel interface, the method I'm using here takes the ipv6 rules from your default WAN interface and removes them, applying them instead to your new tunnel interface. This is not a problem if you do not have ipv6 working from your ISP, but in the case where (without the tunnel) your WAN interface does have a valid ipv6 address already (perhaps you're just wanting to use a HE tunnel for a static ipv6 network), the firewall configuration script will leave your WAN exposed to ipv6 traffic. So, set your "IPv6 Connection" from your internet connection to `DISABLED` before you proceed. 
+This script is not 'supported' in any way by Ubiquiti, and, based on the way the firewall rules are applied, you **MUST** disable ipv6 from your WAN interfaces before you set this up. In order to 'transpose' the Unifi Firewall rules over to the tunnel interface, the method I'm using here takes the ipv6 rules from your default WAN interface and removes them, applying them instead to your new tunnel interface. This is not a problem if you do not have ipv6 working from your ISP, but in the case where (without the tunnel) your WAN interface does have a valid ipv6 address already (perhaps you're just wanting to use a HE tunnel for a static ipv6 network), the firewall configuration script will leave your WAN exposed to ipv6 traffic. So, set your "IPv6 Connection" from your internet connection to `DISABLED` before you proceed.
 
 This set of scripts is intended for the user that is using a HE tunnel in order to get IPv6 connectivity on a single interface. Currently, if you have multiple WANs in a load-balanced setup, OR if your WAN fails over to a secondary WAN, this set of scripts isn't yet robust enough to handle those situations. (See [Issue #1](https://github.com/telnetdoogie/UDMP-ipv6/issues/1))
 
 # Setting up the files
 
-* Add the two files [41-enable-he-ipv6.sh](data/on_boot.d/41-enable-he-ipv6.sh) and [99-add-cronjobs.sh](data/on_boot.d/99-add-cronjobs.sh) to `/data/on_boot.d/` 
-* Make both of those files executable: 
+* Add the two files [41-enable-he-ipv6.sh](data/on_boot.d/41-enable-he-ipv6.sh) and [99-add-cronjobs.sh](data/on_boot.d/99-add-cronjobs.sh) to `/data/on_boot.d/`
+* Make both of those files executable:
   * `chmod +x /data/on_boot.d/41-enable-he-ipv6.sh`
   * `chmod +x /data/on_boot.d/99-add-cronjobs.sh`
 * Create a folder, `mkdir /data/cronjobs/` and put the file [update_ipv6_chains](data/cronjobs/update_ipv6_chains) in that folder.
 * Create a folder, `mkdir /data/ipv6/` and drop both files [enable-he-ipv6.sh](/data/ipv6/enable-he-ipv6.sh) and [configure-he-ipv6-chains.sh](/data/ipv6/configure-he-ipv6-chains.sh) in that folder.
-* Make both of those files executable:  
-  * `chmod +x /data/ipv6/enable-he-ipv6.sh` 
+* Make both of those files executable:
+  * `chmod +x /data/ipv6/enable-he-ipv6.sh`
   * `chmod +x /data/ipv6/configure-he-ipv6-chains.sh`
 * Edit the file [/data/ipv6/enable-he-ipv6.sh](/data/ipv6/enable-he-ipv6.sh) and change the two properties `REMOTE_ENDPOINT` and `LOCAL_IPV6` to match the values from `Server IPv4 Address` and `Client IPv6 Address` respectively
   * those values can be found on tunnelbroker.net in your **tunnel details** page
 
-You can either reboot your UDMP at this point, or run `/data/on_boot.d/41-enable-he-ipv6.sh` and `/data/on_boot.d/99-add-cronjobs.sh`. 
+You can either reboot your UDMP at this point, or run `/data/on_boot.d/41-enable-he-ipv6.sh` and `/data/on_boot.d/99-add-cronjobs.sh`.
 
 Log entries related to scripts running will show in `/var/log/messages` with a prefix of `user.info`
 
