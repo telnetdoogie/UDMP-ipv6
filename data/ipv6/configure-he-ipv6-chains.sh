@@ -1,21 +1,26 @@
 #!/bin/bash
 
-# Default ip6tables path on UDMP
+# Default ip6tables path is /usr/sbin, but on some devices (UDMP-SE) it is located in /sbin, so we will check for that and update the path if needed
 IP6TABLES_PATH="/usr/sbin"
 #UDMP-SE path
 if test -f "/sbin/iptables-save"; then
     IP6TABLES_PATH="/sbin"
 fi
 
-#detect active WAN interface
-WAN_IFACE=$(ip route get 8.8.8.8 | awk '{ printf $5 }')
+# Detect active WAN interface
+WAN_IFACE=$(ip route get 8.8.8.8 | awk 'NR==1{ print $5 }')
+
+if [[ -z "${WAN_IFACE}" ]]; then
+    echo "Could not determine WAN interface, exiting"
+    exit 1
+fi
 
 if [[ ${WAN_IFACE} =~ \. ]]; then
-    #may be a ppp0 interface
+    # may be a ppp0 interface
     WAN_IFACE=$(echo "${WAN_IFACE}" | grep -o '\.[^.]*$' | sed 's/\.//')
 fi
 
-# check to see if WAN interface rules have been re-created
+# Check to see if WAN interface rules have been re-created
 if ${IP6TABLES_PATH}/ip6tables-save | grep -Fqi "${WAN_IFACE}" ; then
 
     # if he-ipv6 entries still exist, remove them before proceeding
